@@ -6,6 +6,7 @@ use GDO\QRCode\GDT_QRCode;
 use GDO\DB\GDT_UInt;
 use chillerlan\QRCode\QROptions;
 use chillerlan\QRCode\QRCode;
+use GDO\QRCode\Module_QRCode;
 
 /**
  * This method renders an arbitrary QR code.
@@ -40,6 +41,10 @@ final class Render extends Method
 	
 	public function render($data, $size='1024')
 	{
+		$module = Module_QRCode::instance();
+		
+		$module->initQRCodeAutoloader();
+		
 		$options = new QROptions([
 			'version' => 5,
 			'outputType' => QRCode::OUTPUT_IMAGE_GIF,

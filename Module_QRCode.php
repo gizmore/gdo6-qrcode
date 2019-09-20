@@ -8,14 +8,19 @@ final class Module_QRCode extends GDO_Module
 {
 	public function onLoadLanguage() { return $this->loadLanguage('lang/qrcode'); }
 	
-	public function onInit()
-	{
-		spl_autoload_register([$this, 'autoload']);
-	}
-	
 	#####################################
 	### Autoload PSR vendor emulation ###
 	#####################################
+	public function initQRCodeAutoloader()
+	{
+		static $inited;
+		if (!isset($inited))
+		{
+			spl_autoload_register([$this, 'autoload']);
+			$inited = true;
+		}
+	}
+	
 	public function autoload($className)
 	{
 		$className = str_replace("\\", '/', $className);
