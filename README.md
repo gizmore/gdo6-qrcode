@@ -8,5 +8,5 @@ https://github.com/gizmore/gdo6/blob/master/DOCS/GDO_INSTALL_A_MODULE.md#install
 Clone this module as follows.
     
     cd gdo6/GDO
-    git clone https://github.com/gizmore/gdo6-qrcode QRCode
+    git clone --recursive https://github.com/gizmore/gdo6-qrcode QRCode
      
