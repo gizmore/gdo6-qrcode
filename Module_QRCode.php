@@ -27,7 +27,7 @@ final class Module_QRCode extends GDO_Module
 			require_once $path;
 		}
 		
-		elseif (Strings::startsWith($className, 'chillerlan\\Settings'))
+		elseif (Strings::startsWith($className, 'chillerlan/Settings'))
 		{
 			$path = str_replace('chillerlan/Settings', $this->filePath('php-settings-container/src'), $className);
 			$path .= '.php';
