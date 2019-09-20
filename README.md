@@ -1,6 +1,8 @@
 # gdo6-qrcode
 QR Code module for gdo6.
 
+Uses https://github.com/chillerlan/php-qrcode
+
 ## Installation
 
 https://github.com/gizmore/gdo6/blob/master/DOCS/GDO_INSTALL_A_MODULE.md#install-a-gdo6-module
