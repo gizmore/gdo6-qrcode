@@ -4,7 +4,15 @@ namespace GDO\QRCode\Method;
 use GDO\Core\Method;
 use GDO\QRCode\GDT_QRCode;
 use GDO\DB\GDT_UInt;
+use chillerlan\QRCode\QROptions;
+use chillerlan\QRCode\QRCode;
 
+/**
+ * This method renders an arbritary qr code.
+ * @author gizmore
+ * @version 6.10
+ * @since 6.10
+ */
 final class Render extends Method
 {
 	public function gdoParameters()
@@ -24,7 +32,28 @@ final class Render extends Method
 	
 	public function render($data, $size='1024')
 	{
+		$options = new QROptions([
+			'version' => 5,
+			'outputType' => QRCode::OUTPUT_IMAGE_PNG,
+			'eccLevel'=> QRCode::ECC_H,
+			'imageTransparent' => false,
+		]);
 		
+		// invoke a fresh QRCode instance
+		$qrcode = new QRCode($options);
+		
+		$data = $qrcode->render($data); # to DATA;SRC string
+
+		list(, $data) = explode(';', $data);
+		list(, $data) = explode(',', $data);
+		$data = base64_decode($data);
+		
+		header('Content-Type: image/png');
+		header('Content-Size: '.strlen($data));
+		
+		echo $data;
+
+		die();
 	}
 	
 }
