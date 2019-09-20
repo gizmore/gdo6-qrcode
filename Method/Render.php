@@ -35,7 +35,7 @@ final class Render extends Method
 		$options = new QROptions([
 			'version' => 5,
 			'outputType' => QRCode::OUTPUT_IMAGE_PNG,
-			'eccLevel'=> QRCode::ECC_H,
+			'eccLevel'=> QRCode::ECC_L,
 			'imageTransparent' => false,
 		]);
 		
