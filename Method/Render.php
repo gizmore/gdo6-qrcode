@@ -8,8 +8,16 @@ use chillerlan\QRCode\QROptions;
 use chillerlan\QRCode\QRCode;
 
 /**
- * This method renders an arbritary qr code.
+ * This method renders an arbitrary QR code.
+ * 
+ * @todo Image render size does not seem to supported by this lib.
+ * 
+ * @see https://github.com/chillerlan/php-qrcode
+ * 
+ * @see \GDO\QRCode\GDT_QRCode
+ * 
  * @author gizmore
+ * 
  * @version 6.10
  * @since 6.10
  */
@@ -34,7 +42,7 @@ final class Render extends Method
 	{
 		$options = new QROptions([
 			'version' => 5,
-			'outputType' => QRCode::OUTPUT_IMAGE_PNG,
+			'outputType' => QRCode::OUTPUT_IMAGE_GIF,
 			'eccLevel'=> QRCode::ECC_L,
 			'imageTransparent' => false,
 		]);
@@ -48,7 +56,7 @@ final class Render extends Method
 		list(, $data) = explode(',', $data);
 		$data = base64_decode($data);
 		
-		header('Content-Type: image/png');
+		header('Content-Type: image/gif');
 		header('Content-Size: '.strlen($data));
 		
 		echo $data;

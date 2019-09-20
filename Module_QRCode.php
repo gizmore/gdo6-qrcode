@@ -18,16 +18,18 @@ final class Module_QRCode extends GDO_Module
 	#####################################
 	public function autoload($className)
 	{
-		if (Strings::startsWith($className, 'chillerlan\\QRCode'))
+		$className = str_replace("\\", '/', $className);
+		
+		if (Strings::startsWith($className, 'chillerlan/QRCode'))
 		{
-			$path = str_replace('chillerlan\\QRCode', $this->filePath('php-qrcode/src'), $className);
+			$path = str_replace('chillerlan/QRCode', $this->filePath('php-qrcode/src'), $className);
 			$path .= '.php';
 			require_once $path;
 		}
 		
 		elseif (Strings::startsWith($className, 'chillerlan\\Settings'))
 		{
-			$path = str_replace('chillerlan\\Settings', $this->filePath('php-settings-container/src'), $className);
+			$path = str_replace('chillerlan/Settings', $this->filePath('php-settings-container/src'), $className);
 			$path .= '.php';
 			require_once $path;
 		}
