@@ -23,10 +23,10 @@ final class GDT_QRCode extends GDT_String
 	#########################
 	### Widget image size ###
 	#########################
-	public $size = '128';
-	public function size($size)
+	public $qrcodeSize = '128';
+	public function qrcodeSize($size)
 	{
-		$this->size = $size;
+		$this->qrcodeSize = $size;
 		return $this;
 	}
 
@@ -44,7 +44,7 @@ final class GDT_QRCode extends GDT_String
 	public function hrefCode()
 	{
 		$args = '&data='.urlencode($this->getVar());
-		$args .= '&size='.$this->size;
+		$args .= '&size='.$this->qrcodeSize;
 		return href('QRCode', 'Render', $args);
 	}
 	
