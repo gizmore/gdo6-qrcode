@@ -8,6 +8,8 @@ final class Module_QRCode extends GDO_Module
 {
 	public function onLoadLanguage() { return $this->loadLanguage('lang/qrcode'); }
 	
+	public function thirdPartyFolders() { return ['/php-']; }
+	
 	#####################################
 	### Autoload PSR vendor emulation ###
 	#####################################
