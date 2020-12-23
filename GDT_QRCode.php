@@ -14,7 +14,7 @@ final class GDT_QRCode extends GDT_String
 {
 	public function defaultLabel() { return $this->label('qrcode'); }
 	
-	public function __construct()
+	protected function __construct()
 	{
 		$this->utf8();
 		$this->max(2048);
