@@ -2,6 +2,7 @@
 namespace GDO\QRCode;
 
 use GDO\Core\GDO_Module;
+use GDO\Core\GDT_Array;
 use GDO\Util\Strings;
 
 final class Module_QRCode extends GDO_Module
@@ -42,4 +43,10 @@ final class Module_QRCode extends GDO_Module
 		}
 	}
 
+	public function hookIgnoreDocsFiles(GDT_Array $ignore)
+	{
+	    $ignore->data[] = 'GDO/QRCode/php-qrcode/**/*';
+	    $ignore->data[] = 'GDO/QRCode/php-settings-container/**/*';
+	}
+	
 }
