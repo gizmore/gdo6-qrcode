@@ -8,8 +8,8 @@
    href="<?=$field->hrefCodeFullscreen()?>"
    target="_blank">
     <img 
-     width="<?=$field->size?>"
-     height="<?=$field->size?>"
+     width="<?=$field->qrcodeSize?>"
+     height="<?=$field->qrcodeSize?>"
      src="<?=$field->hrefCode()?>"
      alt="<?=t('qrcode')?>" />
   </a>
