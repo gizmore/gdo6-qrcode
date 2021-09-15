@@ -11,7 +11,7 @@ use GDO\QRCode\Module_QRCode;
 /**
  * This method renders an arbitrary QR code.
  * 
- * @todo Image render size does not seem to supported by this lib.
+ * @TODO Image render size does not seem to supported by this lib.
  * 
  * @see https://github.com/chillerlan/php-qrcode
  * 
